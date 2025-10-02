@@ -39,6 +39,10 @@ func generateMermaidCode(graph *gen.Graph) (string, error) {
 	builder.WriteString("erDiagram\n")
 
 	for _, node := range graph.Nodes {
+		if strings.Contains(node.Name, "Mixin") {
+			continue
+		}
+
 		builder.WriteString(fmt.Sprintf(" %s {\n", node.Name))
 
 		if node.HasOneFieldID() {
