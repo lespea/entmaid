@@ -1,4 +1,4 @@
-module github.com/troypoulter/entmaid
+module github.com/lespea/entmaid
 
 go 1.23
 
