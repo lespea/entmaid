@@ -18,10 +18,10 @@ type User struct {
 // Fields of the User.
 func (User) Fields() []ent.Field {
 	return []ent.Field{
-		field.Int("age").
-			Positive(),
-		field.String("name").
-			Default("unknown"),
+		field.Int("age").Positive(),
+		field.String("name").Default("unknown"),
+		field.Time("time").Default("now()"),
+		field.JSON("json", map[string]any{}),
 	}
 }
 

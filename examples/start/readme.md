@@ -14,7 +14,7 @@ erDiagram
  Car {
   int id PK
   string model
-  time-Time registered_at
+  timestamp registered_at
   int user_cars FK
  }
 
@@ -32,6 +32,8 @@ erDiagram
   int id PK
   int age
   string name
+  timestamp time
+  jsonb json
  }
 
  Group |o--o{ group_users : users-groups

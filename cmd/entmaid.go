@@ -114,9 +114,16 @@ func addMermaidToType(mermaidCode string, outputType OutputType) string {
 }
 
 func formatType(s string) string {
-	return strings.NewReplacer(
-		".", "-",
-	).Replace(s)
+	switch s {
+	case "time.Time":
+		return "timestamp"
+
+	case "map[string]interface {}", "map[string]interface{}", "map[string]any":
+		return "jsonb"
+
+	default:
+		return strings.ReplaceAll(s, ".", "-")
+	}
 }
 
 func getEdgeRelationship(edge *gen.Edge) string {
