@@ -85,6 +85,10 @@ func generateMermaidCode(graph *gen.Graph) (string, error) {
 	}
 
 	for _, node := range graph.Nodes {
+		if strings.Contains(node.Name, "Mixin") {
+			continue
+		}
+
 		for _, edge := range node.Edges {
 			// Need to handle M2M relationships a bit more special.
 			if edge.M2M() {
