@@ -19,11 +19,13 @@ var OutputTypeIds = map[OutputType][]string{
 	Plain:    {"plain"},
 }
 
-var schemaPath string
-var targetPath string
-var startPattern string
-var endPattern string
-var outputType OutputType
+var (
+	schemaPath   string
+	targetPath   string
+	startPattern string
+	endPattern   string
+	outputType   OutputType
+)
 
 var rootCmd = &cobra.Command{
 	Use:   "entmaid",

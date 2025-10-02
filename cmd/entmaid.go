@@ -173,7 +173,7 @@ func insertMultiLineString(filePath string, multiLineString string, startPattern
 	updatedContent := fileContent[:startIndex+len(startPattern)+1] + multiLineString + "\n" + fileContent[endIndex:]
 
 	// Write the updated content back to the file
-	err = os.WriteFile(filePath, []byte(updatedContent), 0644)
+	err = os.WriteFile(filePath, []byte(updatedContent), 0o644)
 	if err != nil {
 		return err
 	}
