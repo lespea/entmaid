@@ -114,18 +114,19 @@ func addMermaidToType(mermaidCode string, outputType OutputType) string {
 }
 
 func formatType(s string) string {
-	switch s {
-	case "time.Time":
+	ls := strings.ToLower(s)
+	switch ls {
+	case "time.time":
 		return "timestamp"
 
-	case "time.Duration":
+	case "time.duration":
 		return "duration"
 
 	case "map[string]interface {}", "map[string]interface{}", "map[string]any":
 		return "jsonb"
 
 	default:
-		if strings.Contains(s, "Inet") {
+		if strings.Contains(ls, "inet") {
 			return "inet"
 		} else {
 			return strings.ReplaceAll(s, ".", "-")
