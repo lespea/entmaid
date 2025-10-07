@@ -118,11 +118,18 @@ func formatType(s string) string {
 	case "time.Time":
 		return "timestamp"
 
+	case "time.Duration":
+		return "duration"
+
 	case "map[string]interface {}", "map[string]interface{}", "map[string]any":
 		return "jsonb"
 
 	default:
-		return strings.ReplaceAll(s, ".", "-")
+		if strings.Contains(s, "Inet") {
+			return "inet"
+		} else {
+			return strings.ReplaceAll(s, ".", "-")
+		}
 	}
 }
 
